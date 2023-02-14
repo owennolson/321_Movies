@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Contributors
+          </a>
+      
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Chris Cota
+            </a>
+            <a class="navbar-item">
+              Owen Olson
+            </a>
+            <a class="navbar-item">
+              Roslyn Maxwell
+            </a>
+            
+          </div>
+          <h1 class="title is-1">321 Movies</h1>
+        </div>
+      </nav>
+      <div class="columns">
+        <div class="column is-half">
+            Search Movie
+            <input type="text" id="searchInput">
+        </div>
+        <div class="column">
+            <label class="checkbox">
+            <input type="checkbox" id="yearXBox">
+            Year
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="castXBox">
+            Cast
+          </label>
+        </div>
+        <div class="column">
+            <label class="checkbox">
+                <input type="checkbox" id="infoXBox">
+                Info
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" id="ratingXBox">
+                Rating
+              </label>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-full">
+            <ul class="movieList">
+
+            </ul>
+        </div>
+      </div>
+
+
+    
+</body>
+</html>
