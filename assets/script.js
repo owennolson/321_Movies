@@ -9,4 +9,7 @@ var ratingX = document.getElementById("ratingXBox");
 
 var moviesSearched = document.getElementById("movieList");
 
-var apiOMDB = "http://www.omdbapi.com/?i=tt3896198&apikey=" + myKey;
+var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey="+myKey;
+
+
+
