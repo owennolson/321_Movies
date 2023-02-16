@@ -11,8 +11,22 @@ var ratingX = document.getElementById("ratingXBox");
 var moviesSearched = document.getElementById("movieList");
 
 
-//t=title, i=imdb id, type=movies,series,episode y=year 
-var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
+//t=title, i=imdb id, type=movies,series,episode y=year plot=return short or full
 
+
+function getMovieInfo(){
+    var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
+
+    fetch(apiOMDB)
+    .then(function (response) {
+      if (response.ok) {
+        console.log(response);
+        response.json().then(function (data) {
+          console.log(data);
+          
+        });
+      } 
+}
+)};
 
 
