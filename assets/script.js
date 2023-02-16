@@ -1,6 +1,7 @@
-const myKey = 'b1cd3692';
+//const myKey = 'b1cd3692';
 
 var movieInput = document.getElementById("searchInput");
+var searchBTN = document.getElementById("SearchBtn");
 
 var yearX = document.getElementById("yearXBox");
 var castX = document.getElementById("castXBox");
@@ -9,4 +10,9 @@ var ratingX = document.getElementById("ratingXBox");
 
 var moviesSearched = document.getElementById("movieList");
 
-var apiOMDB = "http://www.omdbapi.com/?i=tt3896198&apikey=" + myKey;
+
+//t=title, i=imdb id, type=movies,series,episode y=year 
+var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
+
+
+
