@@ -9,6 +9,7 @@ var infoX = document.getElementById("infoXBox");
 var ratingX = document.getElementById("ratingXBox");
 
 var moviesSearched = document.getElementById("movieList");
+
 console.log(moviesSearched);
 
 //t=title, i=imdb id, type=movies,series,episode y=year plot=return short or full
@@ -65,6 +66,12 @@ function getMovieInfo(){
       } 
 }
 )};
+
+
+movieInput = "avatar 2";
+//t=title, i=imdb id, type=movies,series,episode y=year 
+var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
+
 
 //t=title, i=imdb id, type=movies,series,episode y=year 
 var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
