@@ -1,26 +1,18 @@
-var movieInput = $('input[name="searchInput"]').val();
+var movieInput = $("searchInput").val();
 console.log(movieInput);
-//var apiYouTube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="+ movieInput.value + "&apiKey=AIzaSyDhMGoaM3JNvpeBffOSpxTvwHWi2PvlTDM";
 
-// function getApi() {
-//     fetch(apiYouTube, { method: "GET" })
-//         .then((response) => response.json())
-//         .then((data) => {
-//             console.log(data);
-// });
-// }
 $(document).ready(function(){
-        //videoSearch(movieInput)
-        mockVideoSearch();
+        videoSearch(movieInput)
+        //mockVideoSearch();
     })
  
 function videoSearch(movieInput){
-    movieInput = "avatar";
     $.get("https://www.googleapis.com/youtube/v3/search?key=AIzaSyDhMGoaM3JNvpeBffOSpxTvwHWi2PvlTDM&type=video&part=snippet&maxResults=1"+ "&q=" + movieInput,(data) => {
         console.log(data)
-        let video = `<iframe width="420" height="315" src="http://www.youtube.com/embed/${data[0].items[0].id.videoId}" frameborder="0" allowfullscreen></iframe>`;
+        let video = `<iframe width="720" height="515" src="http://www.youtube.com/embed/${data.items[0].id.videoId}" frameborder="0" allowfullscreen></iframe>`;
             $("#videos").append(video)
         });
+        clear();
 }
 // function mockVideoSearch() {
 //     var data = [{
