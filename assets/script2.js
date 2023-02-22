@@ -66,7 +66,7 @@ var pastSearches = [];
        if (yearX.checked) {
         // this element is checked
       var yearList = document.createElement("li");
-        var getYr = "Cast: " + Number(data.Year);
+        var getYr = "Year: " + Number(data.Year);
        yearList.textContent = getYr;
         
        // moviesSearched.appendChild(yearList);
@@ -105,16 +105,32 @@ var pastSearches = [];
       }
 
       console.log(pastSearches);
+
+      var storedMovies = JSON.stringify(pastSearches);
+
+      console.log(storedMovies);
+
+      localStorage.setItem("Movie", storedMovies);
       
-      for (i = 0; i < pastSearches.length; i++){
+      
+        
+      
+
+      var searchedMovies = localStorage.getItem("Movie");
+      var storeMovieDetails = JSON.parse(searchedMovies);
+      
+      
     
-      var node = document.createElement("li");
-      var textnode = document.createTextNode(pastSearches[i]);
-      node.appendChild(textnode);
-      moviesSearched.appendChild(node);
+
+      for (i = 0; i < storeMovieDetails.length; i++){
+      
+      var listOfMovies = document.createElement("li");
+      var textnode = document.createTextNode(storeMovieDetails[i]);
+      listOfMovies.appendChild(textnode);
+      moviesSearched.appendChild(listOfMovies);
     
 }
-
+      
 
        console.log(savedSearch);
 
