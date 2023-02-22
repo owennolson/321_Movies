@@ -8,12 +8,9 @@ var castX = document.getElementById("castXBox");
 var infoX = document.getElementById("infoXBox");
 var ratingX = document.getElementById("ratingXBox");
 
-var moviesSearched = document.getElementById("movieList");
+var moviesSearched = document.getElementById("pastSearches");
 
 console.log(moviesSearched);
-
-//t=title, i=imdb id, type=movies,series,episode y=year plot=return short or full
-
 
 function getMovieInfo(){
     var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
@@ -24,12 +21,18 @@ function getMovieInfo(){
         
         response.json().then(function (data) {
           console.log(data);
+
+          
+
           
           var posterList = document.createElement("img");
           var getPoster = data.Poster;
 
           posterList.src = getPoster;
           moviesSearched.appendChild(posterList);
+
+          
+          moviesArr.push(getPoster);
 
 
           if (yearX.checked) {
@@ -39,6 +42,11 @@ function getMovieInfo(){
             yearList.textContent = getYr;
             
             moviesSearched.appendChild(yearList);
+            var year = {
+              year: getYr
+            };
+            moviesArr.push(year);
+
         }
           if(castX.checked){
             var castList = document.createElement("li");
@@ -46,6 +54,11 @@ function getMovieInfo(){
             castList.textContent = getCast;
 
             moviesSearched.appendChild(castList);
+            var cast = {
+              cast: getCast
+            };
+            moviesArr.push(cast);
+
           }
           if(infoX.checked){
             var infoList = document.createElement("li");
@@ -53,34 +66,46 @@ function getMovieInfo(){
             infoList.textContent = getInfo;
 
             moviesSearched.appendChild(infoList);
+            var info = {
+              info: getInfo
+            };
+            moviesArr.push(info);
+
           }
           if(ratingX.checked){
             var ratingList = document.createElement("li");
             var getRatings = "imdbRatings: " + data.imdbRating;
             ratingList.textContent = getRatings;
+
             moviesSearched.appendChild(ratingList);
+            var ratings = {
+              rating: getRatings
+            };
+            moviesArr.push("li" + ratings + "li");
           }
 
           
+
+          //moviesSearched.appendChild(moviesArr);
         });
       } 
 }
 )};
 
 
-movieInput = "avatar 2";
+//movieInput = "avatar 2";
 //t=title, i=imdb id, type=movies,series,episode y=year 
 var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
 
 
 //t=title, i=imdb id, type=movies,series,episode y=year 
-var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
-var apiYouTube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="+ movieInput.val() + "&apiKey=AIzaSyDhMGoaM3JNvpeBffOSpxTvwHWi2PvlTDM";
+//var apiOMDB = "http://www.omdbapi.com/?t="+movieInput.value+"&apikey=b1cd3692";
+//var apiYouTube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="+ movieInput.val() + "&apiKey=AIzaSyDhMGoaM3JNvpeBffOSpxTvwHWi2PvlTDM";
 
-fetch(apiYouTube, { method: "GET" })
-.then((response) => response.json())
-.then((data) => {
-  console.log(data);
-});
+//fetch(apiYouTube, { method: "GET" })
+//.then((response) => response.json())
+//.then((data) => {
+//  console.log(data);
+//});
 
 
