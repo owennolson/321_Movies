@@ -15,7 +15,7 @@
     ></script>
 </head>
 <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
+    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Contributors
@@ -33,11 +33,18 @@
             </a>
             
           </div>
-          <h1 class="title is-1">321 Movies</h1>
+          <h1 class="title">321 Movies</h1>
         </div>
       </nav>
       <div class="columns">
         <div class="column is-half">
+          <input  placeholder="Search for a Movie..."type="text" id="searchInput">
+          <form action="./movieInfo.html">
+            <button class="button is-link is-danger" type="submit" id="SearchBtn" onclick="getMovieInfo()">Search Movie</button>
+          </form>  
+        </div>
+        <div class="column is-half">
+            <label class="checkbox">Year</label>
 
             <button class="button is-link" type="button" id="SearchBtn" onclick="getMovieInfo()">Search Movie</button>
             
@@ -50,21 +57,16 @@
             <label class="checkbox">
             <input type="checkbox" id="yearXBox">
             Year
-          </label>
-          <label class="checkbox">
+
+          <label class="checkbox">Cast</label>
             <input type="checkbox" id="castXBox">
-            Cast
-          </label>
-        </div>
-        <div class="column">
-            <label class="checkbox">
-                <input type="checkbox" id="infoXBox">
-                Info
-              </label>
-              <label class="checkbox">
-                <input type="checkbox" id="ratingXBox">
-                Rating
-              </label>
+
+          <label class="checkbox">Info</label>
+            <input type="checkbox" id="infoXBox">
+
+          <label class="checkbox">Rating</label>
+            <input type="checkbox" id="ratingXBox">
+
         </div>
       </div>
       <div class="columns">
