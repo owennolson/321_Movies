@@ -12,11 +12,11 @@ var pastSearches = [];
 
 function gatherSearch() {
 
-searchBTN.addEventListener('click', function(e){
-  e.preventDefault();
-  localStorage.setItem("userInput", movieInput.value);
-  document.location.replace("./movieInfo.html");
-})
+  searchBTN.addEventListener('click', function (e) {
+    e.preventDefault();
+    localStorage.setItem("userInput", movieInput.value);
+    document.location.replace("./movieInfo.html");
+  })
 
 
 
@@ -209,27 +209,27 @@ searchBTN.addEventListener("click", function () {
 })
 
 
-      for (i = 0; i < storeMovieDetails.length; i++){
-      
-      var listOfMovies = document.createElement("li");
-      moviesSearched.appendChild(listOfMovies);
-    
+for (i = 0; i < storeMovieDetails.length; i++) {
+
+  var listOfMovies = document.createElement("li");
+  moviesSearched.appendChild(listOfMovies);
+
 }
-      
 
-       console.log(savedSearch);
 
-        if(pastSearches.length >= 5) { 
-            pastSearches.pop();
-        }
-        pastSearches.unshift(savedSearch);
-        
-        localStorage["pastSearches"] = JSON.stringify(pastSearches);
+console.log(savedSearch);
+
+if (pastSearches.length >= 5) {
+  pastSearches.pop();
+}
+pastSearches.unshift(savedSearch);
+
+localStorage["pastSearches"] = JSON.stringify(pastSearches);
        // showSearchHistory();
-    });
-    } 
-    }
-)};
+
+
+
+
 
 
 
