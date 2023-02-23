@@ -11,15 +11,6 @@ var pastSearches = [];
 
 
 function gatherSearch() {
-
-  searchBTN.addEventListener('click', function (e) {
-    e.preventDefault();
-    localStorage.setItem("userInput", movieInput.value);
-    document.location.replace("./movieInfo.html");
-  })
-
-
-
   var userInputObj = {
     movieName: movieInput.value,
     yearX: yearX.checked,
@@ -60,7 +51,6 @@ function getMovies() {
 
 //TO DO: Move to MovieInfo.js
 function getMovieInfo() {
-
   var userInput = JSON.parse(localStorage.getItem("currentSearch"));
 
   var apiOMDB = "http://www.omdbapi.com/?t=" + userInput.movieName + "&apikey=b1cd3692";
@@ -163,7 +153,8 @@ function getMovieInfo() {
 
 
 
-          function showMovies() {
+          function showMovies(e) {
+            e.preventDefault()
             //TO DO: get search history instead
             var searchedMovies = localStorage.getItem("searchHistory");
             var storeMovieDetails = JSON.parse(searchedMovies);
@@ -203,36 +194,10 @@ function getMovieInfo() {
 
 
 //TO DO: Move gather search to event listener, function we did with Owen, redirect
-searchBTN.addEventListener("click", function () {
+searchBTN.addEventListener("click", function (e) {
+  e.preventDefault();
   gatherSearch();
   getMovieInfo();
+  localStorage.setItem("userInput", movieInput.value);
+  document.location.replace("./movieInfo.html");
 })
-
-
-for (i = 0; i < storeMovieDetails.length; i++) {
-
-  var listOfMovies = document.createElement("li");
-  moviesSearched.appendChild(listOfMovies);
-
-}
-
-
-console.log(savedSearch);
-
-if (pastSearches.length >= 5) {
-  pastSearches.pop();
-}
-pastSearches.unshift(savedSearch);
-
-localStorage["pastSearches"] = JSON.stringify(pastSearches);
-       // showSearchHistory();
-
-
-
-
-
-
-
-
-
-
