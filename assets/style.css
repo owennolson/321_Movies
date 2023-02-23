@@ -6,3 +6,53 @@ nav {
 h1 {
     text-align: center;
 }
+body {
+    height: 100rem;
+    background-color: #E6B874;
+}
+.navbar {
+    background-color: #DFB06B;
+    height: 7rem;
+}
+.navbar h1 {
+    font-size: 6rem;
+    margin-left: 30rem;
+}
+#searchInput {
+    width: 20rem;
+    height: 3rem;
+    margin: 5rem 1rem 1rem 38rem;
+}
+#SearchBtn {
+    height: 2rem;
+    width: 20rem;
+    margin: 1rem 1rem 1rem 38rem;
+}
+#yearXBox {
+    height: 2rem;
+    width: 2rem;
+    margin: 5rem 1rem 2rem  1rem ;
+}
+#castXBox{
+    height: 2rem;
+    width: 2rem;
+    margin: 5rem 1rem 2rem  1rem ;
+}
+#infoXBox{
+    height: 2rem;
+    width: 2rem;
+    margin: 1rem 1rem 1rem  1rem ;
+}
+#ratingXBox {
+    height: 2rem;
+    width: 2rem;
+    margin: 1rem 1rem 1rem  1rem ;
+}
+#videos {
+    margin: 1rem 1rem 1rem 30rem;
+}
+#homePage {
+    margin: 1rem 1rem 1rem 30rem;
+    height: 2rem;
+    width: 47rem;
+}

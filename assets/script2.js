@@ -7,10 +7,18 @@ var infoX = document.getElementById("infoXBox");
 var ratingX = document.getElementById("ratingXBox");
 
 var moviesSearched = document.getElementById("pastSearches");
-
 var pastSearches = [];
 
+
 function gatherSearch() {
+
+searchBTN.addEventListener('click', function(e){
+  e.preventDefault();
+  localStorage.setItem("userInput", movieInput.value);
+  document.location.replace("./movieInfo.html");
+})
+
+
 
   var userInputObj = {
     movieName: movieInput.value,
@@ -105,6 +113,7 @@ function getMovieInfo() {
 
           history.push(searchHistory);
 
+
           var historyString = JSON.stringify(history);
           localStorage.setItem("searchHistory", historyString);
 
@@ -198,6 +207,29 @@ searchBTN.addEventListener("click", function () {
   gatherSearch();
   getMovieInfo();
 })
+
+
+      for (i = 0; i < storeMovieDetails.length; i++){
+      
+      var listOfMovies = document.createElement("li");
+      moviesSearched.appendChild(listOfMovies);
+    
+}
+      
+
+       console.log(savedSearch);
+
+        if(pastSearches.length >= 5) { 
+            pastSearches.pop();
+        }
+        pastSearches.unshift(savedSearch);
+        
+        localStorage["pastSearches"] = JSON.stringify(pastSearches);
+       // showSearchHistory();
+    });
+    } 
+    }
+)};
 
 
 

@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Info</title>
     <link rel="stylesheet" a href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
+    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Contributors
@@ -26,7 +27,7 @@
             </a>
             
           </div>
-          <h1 class="title is-1">321 Movies</h1>
+          <h1 class="title">321 Movies</h1>
         </div>
       </nav>
       <div class="columns">
@@ -38,16 +39,16 @@
                 <li>Cast: <span id="movieCast"></span></li>
             </ul>
         </div>
-        <div class="column movieSum">Summary</div>
+        <div class="column movieSum">Summary:</div>
       </div>
-      <div class="columns">
-        <div class="column">
-            <div id="videos"></div>
-        </div>
+      <div class="column is-full">
+          <div id="videos"></div>
+      </div>
+      <button class="button is-link is-danger"
+      type="submit" id = "homePage">Search Again</button>
       </div> 
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script type="text/javascript" src="./movieInfo.js"></script>     
-      <script type="text/javascript" src="assets/script.js"></script>
+      <script type="text/javascript" src="./assets/movieInfo.js"></script>     
 
 </body>
 </html>
