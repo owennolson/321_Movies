@@ -15,17 +15,15 @@
     <nav class="navbar" role="navigation" aria-label="dropdown navigation">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"> Contributors </a>
-
-        <div class="navbar-dropdown">
           <a class="navbar-item"> Chris Cota </a>
           <a class="navbar-item"> Owen Olson </a>
           <a class="navbar-item"> Roslyn Maxwell </a>
         </div>
-        <h1 class="title">321 Movies</h1>
+            <h1 class="title">321 Movies</h1>
       </div>
     </nav>
     <div class="columns">
-      <div class="column is-half">
+      <div id="searchArea" class="column is-full">
         <input
           placeholder="Search for a Movie..."
           type="text"
@@ -34,32 +32,37 @@
         <form>
           <button
             class="button is-link is-danger"
-            type="submit"
-            id="SearchBtn"
+            type="button"
+            id="movieTrailerBtn"
           >
-            Search Movie
+            Movie Trailer
+          </button>
+          <button class="button is-link is-danger"
+            type="button"
+            id="movieInfoBtn">
+            Movie Info
           </button>
         </form>
       </div>
-      <div class="column">
-        <label class="checkbox">Year</label>
-        <input type="checkbox" id="yearXBox" />
+        </div>
+        <div id="checkboxArea" class="column is-full">
+            <label class="checkbox">Year</label>
+            <input type="checkbox" id="yearXBox">
+           <label class="checkbox">Cast</label>
+          <input type="checkbox" id="castXBox" />
+          <label class="checkbox">Info</label>
+          <input type="checkbox" id="infoXBox" />
+          <label class="checkbox">Rating</label>
+          <input type="checkbox" id="ratingXBox" />
 
-        <label class="checkbox">
-        <input type="checkbox" id="castXBox" />
-        Cast</label><br>
-
-        <label class="checkbox">Info</label>
-        <input type="checkbox" id="infoXBox" />
-
-        <label class="checkbox">
-        <input type="checkbox" id="ratingXBox" />
-        Rating</label>
+      </div>
       </div>
     </div>
     <div class="columns">
       <div class="column is-full">
-        <ul id="pastSearches"></ul>
+        <ul id="pastSearches">
+        </ul>
+
       </div>
     </div>
     <script
@@ -68,6 +71,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/script2.js"></script>
-    <script src="assets/movieInfo.js"></script>
   </body>
 </html>

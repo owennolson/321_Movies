@@ -19,11 +19,16 @@ body {
     margin-left: 30rem;
 }
 #searchInput {
-    width: 20rem;
+    width: 42rem;
     height: 3rem;
     margin: 5rem 1rem 1rem 38rem;
 }
-#SearchBtn {
+#movieInfoBtn {
+    height: 2rem;
+    width: 20rem;
+    margin: 1rem 1rem 1rem 1rem;
+}
+#movieTrailerBtn {
     height: 2rem;
     width: 20rem;
     margin: 1rem 1rem 1rem 38rem;
@@ -55,4 +60,22 @@ body {
     margin: 1rem 1rem 1rem 30rem;
     height: 2rem;
     width: 47rem;
+}
+ul {
+    margin: 2rem;
+}
+ul li {
+    border-style:inset;
+    border-color: hsl(348, 100%, 61%);
+    margin: 2rem;
+    border-radius: 2rem;
+    background-color: #DFB06B;
+    text-align: center;
+    justify-content: center;
+    height: 5rem;
+    font-size: 1rem;
+
+}
+#checkboxArea {
+    margin-left: 45rem;
 }

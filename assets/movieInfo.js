@@ -1,13 +1,39 @@
 $(document).ready(function () {
+  var year = document.getElementById("movieYr");
+  var cast = document.getElementById("movieCast");
+  var info = document.getElementById("movieSummary");
+  var rating = document.getElementById("movieRtg");
+  var searchTermInput = document.getElementById("searchInput");
     var movieInput = localStorage.getItem("userInput");
+    var movieInfo = JSON.parse(localStorage.getItem("searchHistory"))[0];
     var homeBtn = document.getElementById("homePage");
     console.log(movieInput);
   
     videoSearch(movieInput);
-  
+    console.log(movieInfo);
+    // infoAPI();
+    year.textContent = movieInfo.movieYear;
+    cast.textContent = movieInfo.movieCast;
+    info.textContent = movieInfo.moviePlot;
+    rating.textContent = movieInfo.movieRating
+
+    //  function infoAPI()
+    //    var apiOMDB = "http://www.omdbapi.com/?t=" + searchTermInput.value + "&apikey=b1cd3692"; 
+    //    fetch(apiOMDB)
+    //    .then(function (response) {
+    //      response.json().then(function (data) {
+    //      year.textContent = data.Year;
+    //      cast.textContent = data.Actors;
+    //      info.textContent = data.Plot;
+    //      rating.textContent = data.imdbRating;
+
+    //      year.innerHTML = data.year;
+    //      })
+
+
     function videoSearch(searchTerm) {
       $.get(
-        "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDhMGoaM3JNvpeBffOSpxTvwHWi2PvlTDM&type=video&part=snippet&maxResults=1" +
+        "https://www.googleapis.com/youtube/v3/search?key=AIzaSyB4iANTavTOkhNiHJBZLKy9VwkaCACFJxg&type=video&part=snippet&maxResults=1" +
           "&q=" +
           encodeURI(searchTerm + " trailer"),
         (data) => {
@@ -18,116 +44,7 @@ $(document).ready(function () {
       );
     }
   
-  
-  
-    function getMovieInfo() {
-      var apiOMDB =
-        "http://www.omdbapi.com/?t=" + movieInput.value + "&apikey=b1cd3692";
-  
-      fetch(apiOMDB).then(function (response) {
-        if (response.ok) {
-          response.json().then(function (data) {
-            var searchInput = movieInput.value;
-            if (searchInput == "") {
-              return;
-            }
-            var posterList = document.createElement("img");
-            var getPoster = data.Poster;
-  
-            posterList.src = getPoster;
-            //moviesSearched.appendChild(posterList);
-  
-            pastSearches.push(getPoster.image);
-  
-            var movieYr = data.Year;
-            var movieCst = data.Actors;
-            var moviePlt = data.Plot;
-            var movieRtg = data.imdbRating;
-            //make call to get API movie data
-            var savedSearch = {
-              searchInput: searchInput,
-              movieTitle: response.Title,
-              movieYear: "Year: " + movieYr,
-              movieCast: "Cast: " + movieCst,
-              moviePlot: "Summary: " + moviePlt,
-              movieRating: "imdb Rating: " + movieRtg,
-              // iterate over to find IMDB rating rating: response.Ratings,
-            };
-  
-            if (yearX.checked) {
-              // this element is checked
-              var yearList = document.createElement("li");
-              var getYr = "Year: " + Number(data.Year);
-              yearList.textContent = getYr;
-  
-              // moviesSearched.appendChild(yearList);
-  
-              pastSearches.push(getYr);
-            }
-            if (castX.checked) {
-              var castList = document.createElement("li");
-              var getCast = "Cast: " + data.Actors;
-              castList.textContent = getCast;
-  
-              //moviesSearched.appendChild(castList);
-  
-              pastSearches.push(getCast);
-            }
-            if (infoX.checked) {
-              var infoList = document.createElement("li");
-              var getInfo = "Info: " + data.Plot;
-              infoList.textContent = getInfo;
-  
-              // moviesSearched.appendChild(infoList);
-  
-              pastSearches.push(getInfo);
-            }
-            if (ratingX.checked) {
-              var ratingList = document.createElement("li");
-              var getRatings = "imdbRatings: " + data.imdbRating;
-              ratingList.textContent = getRatings;
-  
-              // moviesSearched.appendChild(ratingList);
-  
-              pastSearches.push(getRatings);
-            }
-  
-            console.log(pastSearches);
-  
-            var storedMovies = JSON.stringify(pastSearches);
-  
-            console.log(storedMovies);
-  
-            localStorage.setItem("Movie", storedMovies);
-  
-            var searchedMovies = localStorage.getItem("Movie");
-            var storeMovieDetails = JSON.parse(searchedMovies);
-  
-            for (i = 0; i < storeMovieDetails.length; i++) {
-              var listOfMovies = document.createElement("li");
-              var textnode = document.createTextNode(storeMovieDetails[i]);
-              listOfMovies.appendChild(textnode);
-              moviesSearched.appendChild(listOfMovies);
-            }
-  
-            console.log(savedSearch);
-  
-            if (pastSearches.length >= 5) {
-              pastSearches.pop();
-            }
-            pastSearches.unshift(savedSearch);
-  
-            localStorage["pastSearches"] = JSON.stringify(pastSearches);
-            // showSearchHistory();
-          });
-        }
-      });
-    }
-  
-  
-    
-    homeBtn.addEventListener('click', function(e){
-      e.preventDefault();
+    homeBtn.addEventListener('click', function(){
       document.location.replace("./index.html");
     })
   });
