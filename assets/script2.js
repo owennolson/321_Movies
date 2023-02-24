@@ -1,5 +1,5 @@
 var movieInput = document.getElementById("searchInput");
-var movieTrailerBtn = document.getElementById("movieTrailerBtn");
+var movieTrailerBtn = document.getElementById("movieTrailerButton");
 var movieInfoBtn = document.getElementById("movieInfoBtn");
 var yearX = document.getElementById("yearXBox");
 var castX = document.getElementById("castXBox");
