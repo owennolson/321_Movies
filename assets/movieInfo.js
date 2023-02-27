@@ -38,7 +38,7 @@ $(document).ready(function () {
           encodeURI(searchTerm + " trailer"),
         (data) => {
           console.log(data);
-          let videoPlayer = `<iframe width="720" height="515" src="http://www.youtube.com/embed/${data.items[0].id.videoId}" frameborder="0" allowfullscreen></iframe>`;
+          let videoPlayer = `<iframe width="720" height="515" src="https://www.youtube.com/embed/${data.items[0].id.videoId}" frameborder="0" allowfullscreen></iframe>`;
           $("#videos").append(videoPlayer);
         }
       );

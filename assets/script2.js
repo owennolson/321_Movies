@@ -42,7 +42,7 @@ function getMovies() {
 function getMovieInfo() {
   var userInput = JSON.parse(localStorage.getItem("currentSearch"));
   var apiOMDB =
-    "http://www.omdbapi.com/?t=" + userInput.movieName + "&apikey=b1cd3692";
+    "https://www.omdbapi.com/?t=" + userInput.movieName + "&apikey=b1cd3692";
   return fetch(apiOMDB).then(function (response) {
     if (response.ok) {
       return response.json().then(function (data) {
